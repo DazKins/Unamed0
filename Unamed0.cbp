@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Unamed0" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/Unamed0" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+				<Linker>
+					<Add library="sfml-graphics-d" />
+					<Add library="sfml-window-d" />
+					<Add library="sfml-audio-d" />
+					<Add library="sfml-network-d" />
+					<Add library="sfml-system-d" />
+				</Linker>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/Unamed0" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add library="sfml-window" />
+					<Add library="sfml-graphics" />
+					<Add library="sfml-audio" />
+					<Add library="sfml-network" />
+					<Add library="sfml-system" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+			<Add option="-DGLEW_STATIC" />
+		</Compiler>
+		<Linker>
+			<Add library="glew32s" />
+			<Add library="glu32" />
+			<Add library="opengl32" />
+			<Add directory="C:/dev/c++/libraries/glew-2.0.0-win32/glew-2.0.0/lib/Release/Win32" />
+			<Add directory="C:/dev/c++/libraries/SFML-2.4.2-windows-gcc-4.9.2-tdm-32-bit/SFML-2.4.2/lib" />
+		</Linker>
+		<Unit filename="res/models/bunny.obj" />
+		<Unit filename="res/shaders/fragment.glsl" />
+		<Unit filename="res/shaders/vertex.glsl" />
+		<Unit filename="src/Application.cpp" />
+		<Unit filename="src/Application.h" />
+		<Unit filename="src/Display.cpp" />
+		<Unit filename="src/Display.h" />
+		<Unit filename="src/Game_Object.cpp" />
+		<Unit filename="src/Game_Object.h" />
+		<Unit filename="src/Graphics/Buffer_Object.cpp" />
+		<Unit filename="src/Graphics/Buffer_Object.h" />
+		<Unit filename="src/Graphics/Camera.cpp" />
+		<Unit filename="src/Graphics/Camera.h" />
+		<Unit filename="src/Graphics/Model/Model.cpp" />
+		<Unit filename="src/Graphics/Model/Model.h" />
+		<Unit filename="src/Graphics/Model/Model_Loader.cpp" />
+		<Unit filename="src/Graphics/Model/Model_Loader.h" />
+		<Unit filename="src/Graphics/Shader_Program.cpp" />
+		<Unit filename="src/Graphics/Shader_Program.h" />
+		<Unit filename="src/Graphics/Standard_Shapes/Sphere.cpp" />
+		<Unit filename="src/Graphics/Standard_Shapes/Sphere.h" />
+		<Unit filename="src/Maths/GLM.cpp" />
+		<Unit filename="src/Maths/GLM.h" />
+		<Unit filename="src/Renderer/Master_Render_Manager.cpp" />
+		<Unit filename="src/Renderer/Master_Render_Manager.h" />
+		<Unit filename="src/Renderer/Simple_Renderer.cpp" />
+		<Unit filename="src/Renderer/Simple_Renderer.h" />
+		<Unit filename="src/Util/OpenGLHelper.cpp" />
+		<Unit filename="src/Util/OpenGLHelper.h" />
+		<Unit filename="src/main.cpp" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

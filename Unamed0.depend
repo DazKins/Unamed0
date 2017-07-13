@@ -1,0 +1,126 @@
+# depslib dependency file v1.0
+1499358720 source:c:\dev\c++\unamed0\main.cpp
+	<iostream>
+	<SFML/Window.hpp>
+
+1499640585 source:c:\dev\c++\unamed0\src\display.cpp
+	"Display.h"
+
+1499639630 c:\dev\c++\unamed0\src\display.h
+	<SFML/Window.hpp>
+	<SFML/Graphics.hpp>
+	<SFML/Window/Keyboard.hpp>
+	<string>
+	<memory>
+
+1499902965 source:c:\dev\c++\unamed0\src\main.cpp
+	<iostream>
+	"Display.h"
+	"Application.h"
+	"Util/OpenGLHelper.h"
+	"Maths/GLM.h"
+	"Graphics/Model/Model_Loader.h"
+	<SFML/System/Clock.hpp>
+
+1499902822 source:c:\dev\c++\unamed0\src\application.cpp
+	"Application.h"
+
+1499901934 c:\dev\c++\unamed0\src\application.h
+	"Graphics/Buffer_Object.h"
+	"Graphics/Shader_Program.h"
+	"Graphics/Camera.h"
+	"Graphics/Standard_Shapes/Sphere.h"
+	"Display.h"
+	"Maths/GLM.h"
+	"Graphics/Model/Model.h"
+	"Graphics/Model/Model_Loader.h"
+	<memory>
+
+1499429814 source:c:\dev\c++\unamed0\src\renderer\master_render_manager.cpp
+	"Master_Render_Manager.h"
+
+1499430170 c:\dev\c++\unamed0\src\renderer\master_render_manager.h
+	"Simple_Renderer.h"
+
+1499429590 c:\dev\c++\unamed0\src\renderer\simple_renderer.h
+
+1499429952 source:c:\dev\c++\unamed0\src\renderer\simple_renderer.cpp
+	"Simple_Renderer.h"
+
+1499714476 source:c:\dev\c++\unamed0\src\util\openglhelper.cpp
+	"OpenGLHelper.h"
+
+1499714491 c:\dev\c++\unamed0\src\util\openglhelper.h
+	<GL/glew.h>
+
+1499902718 source:c:\dev\c++\unamed0\src\graphics\buffer_object.cpp
+	"Buffer_Object.h"
+
+1499704092 c:\dev\c++\unamed0\src\graphics\buffer_object.h
+	<vector>
+	<GL/glew.h>
+	<iostream>
+	"Shader_Program.h"
+
+1499704070 c:\dev\c++\unamed0\src\graphics\shader_program.h
+	<GL/glew.h>
+	<string>
+	"../Maths/GLM.h"
+
+1499703549 source:c:\dev\c++\unamed0\src\graphics\shader_program.cpp
+	"Shader_Program.h"
+	<fstream>
+	<sstream>
+	<iostream>
+
+1499713577 c:\dev\c++\unamed0\src\maths\glm.h
+	<glm/glm.hpp>
+	<glm/gtc/type_ptr.hpp>
+	<glm/gtc/matrix_transform.hpp>
+
+1499616838 source:c:\dev\c++\unamed0\src\game_object.cpp
+	"Game_Object.h"
+
+1499616840 c:\dev\c++\unamed0\src\game_object.h
+	"Maths/GLM.h"
+
+1499882741 source:c:\dev\c++\unamed0\src\graphics\camera.cpp
+	"Camera.h"
+	<iostream>
+
+1499639781 c:\dev\c++\unamed0\src\graphics\camera.h
+	"../Game_Object.h"
+	"../Maths/GLM.h"
+	<SFML/Window/Keyboard.hpp>
+	<SFML/Window/Mouse.hpp>
+	<SFML/System/Vector2.hpp>
+	<cmath>
+
+1499713668 source:c:\dev\c++\unamed0\src\maths\glm.cpp
+	"GLM.h"
+
+1499716252 source:c:\dev\c++\unamed0\src\graphics\standard_shapes\sphere.cpp
+	"Sphere.h"
+
+1499709484 c:\dev\c++\unamed0\src\graphics\standard_shapes\sphere.h
+	<cmath>
+	<GL/glew.h>
+	"../Buffer_Object.h"
+	"../../Maths/GLM.h"
+
+1499901843 source:c:\dev\c++\unamed0\src\graphics\model\model.cpp
+	"Model.h"
+
+1499901825 c:\dev\c++\unamed0\src\graphics\model\model.h
+	<memory>
+	"../Buffer_Object.h"
+
+1499901624 c:\dev\c++\unamed0\src\graphics\model\model_loader.h
+	"Model.h"
+	<string>
+	<fstream>
+
+1499902949 source:c:\dev\c++\unamed0\src\graphics\model\model_loader.cpp
+	"Model_Loader.h"
+	<iostream>
+
