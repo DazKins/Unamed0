@@ -81,6 +81,8 @@
 		<Unit filename="src/Renderer/Simple_Renderer.h" />
 		<Unit filename="src/Util/OpenGLHelper.cpp" />
 		<Unit filename="src/Util/OpenGLHelper.h" />
+		<Unit filename="src/Util/StringUtil.cpp" />
+		<Unit filename="src/Util/StringUtil.h" />
 		<Unit filename="src/main.cpp" />
 		<Extensions>
 			<code_completion />

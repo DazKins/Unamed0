@@ -6,6 +6,8 @@
 
 namespace Shader
 {
+    unsigned int Shader_Program::s_curBoundShader = 0;
+
     Shader_Program::Shader_Program(const std::string& vertexPath, const std::string& fragmentPath)
     {
         std::string vertexCode;
@@ -80,16 +82,28 @@ namespace Shader
 
     void Shader_Program::bind()
     {
-        glUseProgram(m_programID);
+        if (s_curBoundShader != m_programID)
+        {
+            glUseProgram(m_programID);
+            s_curBoundShader = m_programID;
+        }
     }
 
     void Shader_Program::unbind()
     {
         glUseProgram(0);
+        s_curBoundShader = 0;
     }
 
     int Shader_Program::getUniformLocation (const std::string& name)
     {
+        GLuint ret = glGetUniformLocation(m_programID, name.c_str());
+
+        if (ret == -1)
+        {
+            std::cout << "Could not locate uniform: " << name << std::endl;
+        }
+
         return glGetUniformLocation(m_programID, name.c_str());
     }
 
@@ -109,7 +123,7 @@ namespace Shader
 
     Shader_Program * getDefaultShader()
     {
-        static Shader_Program ret ("vertex", "fragment");
-        return &ret;
+        static Shader_Program def ("vertex", "fragment");
+        return &def;
     }
 }

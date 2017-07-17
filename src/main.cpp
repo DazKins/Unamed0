@@ -5,6 +5,7 @@
 #include "Util/OpenGLHelper.h"
 #include "Maths/GLM.h"
 #include "Graphics/Model/Model_Loader.h"
+#include "Util/StringUtil.h"
 
 #include <SFML/System/Clock.hpp>
 
@@ -23,6 +24,8 @@ int entry()
     sf::Clock clock;
 
     //OpenGLHelper::setWireframeMode(true);
+
+    sf::RectangleShape rectangle (sf::Vector2f(200, 40));
 
     while (Display::isOpen())
     {

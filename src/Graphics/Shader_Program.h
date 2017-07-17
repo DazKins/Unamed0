@@ -26,9 +26,13 @@ namespace Shader
 
     private:
         GLuint m_programID;
+
+        static unsigned int s_curBoundShader;
     };
 
     Shader_Program * getDefaultShader();
 }
+
+extern Shader::Shader_Program def;
 
 #endif // SHADER_PROGRAM_H_INCLUDED

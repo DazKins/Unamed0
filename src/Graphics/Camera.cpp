@@ -36,15 +36,17 @@ sf::Vector2i oldMouseGlobalPos;
 void Camera::tick(float dt)
 {
     float speed = dt;
-    #
+
     Vector3 * pos = getPosition();
     Vector3 * rot = getRotation();
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
     {
-        pos->z += (-cos(rot->y) * cos(rot->x)) * speed;
-        pos->x += (-sin(rot->y) * cos(rot->x)) * speed;
-        pos->y += sin(rot->x) * speed;
+        //pos->z += (-cos(rot->y) * cos(rot->x)) * speed;
+        //pos->x += (-sin(rot->y) * cos(rot->x)) * speed;
+        //pos->y += sin(rot->x) * speed;
+        pos->z += -cos(rot->y) * speed;
+        pos->x += -sin(rot->y) * speed;
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
     {
@@ -53,9 +55,11 @@ void Camera::tick(float dt)
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
     {
-        pos->z += (cos(rot->y) * cos(rot->x)) * speed;
-        pos->x += (sin(rot->y) * cos(rot->x)) * speed;
-        pos->y += -sin(rot->x) * speed;
+        //pos->z += (cos(rot->y) * cos(rot->x)) * speed;
+        //pos->x += (sin(rot->y) * cos(rot->x)) * speed;
+        //pos->y += -sin(rot->x) * speed;
+        pos->z += cos(rot->y) * speed;
+        pos->x += sin(rot->y) * speed;
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
     {

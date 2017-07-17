@@ -2,8 +2,12 @@
 #define MODEL_LOADER_H_INCLUDED
 
 #include "Model.h"
+#include "../../Util/StringUtil.h"
+#include "../Shader_Program.h"
 
 #include <string>
+#include <vector>
+#include <sstream>
 #include <fstream>
 
 namespace Model

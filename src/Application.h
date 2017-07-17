@@ -22,6 +22,7 @@ public:
 
 private:
     Model::Model m_testModel;
+    BufferObject m_testBO;
     std::unique_ptr<Camera> m_camera;
 };
 

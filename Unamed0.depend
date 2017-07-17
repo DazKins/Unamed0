@@ -3,7 +3,7 @@
 	<iostream>
 	<SFML/Window.hpp>
 
-1499640585 source:c:\dev\c++\unamed0\src\display.cpp
+1499975285 source:c:\dev\c++\unamed0\src\display.cpp
 	"Display.h"
 
 1499639630 c:\dev\c++\unamed0\src\display.h
@@ -13,19 +13,20 @@
 	<string>
 	<memory>
 
-1499902965 source:c:\dev\c++\unamed0\src\main.cpp
+1500147722 source:c:\dev\c++\unamed0\src\main.cpp
 	<iostream>
 	"Display.h"
 	"Application.h"
 	"Util/OpenGLHelper.h"
 	"Maths/GLM.h"
 	"Graphics/Model/Model_Loader.h"
+	"Util/StringUtil.h"
 	<SFML/System/Clock.hpp>
 
-1499902822 source:c:\dev\c++\unamed0\src\application.cpp
+1500158264 source:c:\dev\c++\unamed0\src\application.cpp
 	"Application.h"
 
-1499901934 c:\dev\c++\unamed0\src\application.h
+1500154809 c:\dev\c++\unamed0\src\application.h
 	"Graphics/Buffer_Object.h"
 	"Graphics/Shader_Program.h"
 	"Graphics/Camera.h"
@@ -47,27 +48,27 @@
 1499429952 source:c:\dev\c++\unamed0\src\renderer\simple_renderer.cpp
 	"Simple_Renderer.h"
 
-1499714476 source:c:\dev\c++\unamed0\src\util\openglhelper.cpp
+1499975864 source:c:\dev\c++\unamed0\src\util\openglhelper.cpp
 	"OpenGLHelper.h"
 
 1499714491 c:\dev\c++\unamed0\src\util\openglhelper.h
 	<GL/glew.h>
 
-1499902718 source:c:\dev\c++\unamed0\src\graphics\buffer_object.cpp
+1500300966 source:c:\dev\c++\unamed0\src\graphics\buffer_object.cpp
 	"Buffer_Object.h"
 
-1499704092 c:\dev\c++\unamed0\src\graphics\buffer_object.h
+1500154556 c:\dev\c++\unamed0\src\graphics\buffer_object.h
 	<vector>
 	<GL/glew.h>
 	<iostream>
 	"Shader_Program.h"
 
-1499704070 c:\dev\c++\unamed0\src\graphics\shader_program.h
+1500152843 c:\dev\c++\unamed0\src\graphics\shader_program.h
 	<GL/glew.h>
 	<string>
 	"../Maths/GLM.h"
 
-1499703549 source:c:\dev\c++\unamed0\src\graphics\shader_program.cpp
+1500152962 source:c:\dev\c++\unamed0\src\graphics\shader_program.cpp
 	"Shader_Program.h"
 	<fstream>
 	<sstream>
@@ -84,7 +85,7 @@
 1499616840 c:\dev\c++\unamed0\src\game_object.h
 	"Maths/GLM.h"
 
-1499882741 source:c:\dev\c++\unamed0\src\graphics\camera.cpp
+1500154342 source:c:\dev\c++\unamed0\src\graphics\camera.cpp
 	"Camera.h"
 	<iostream>
 
@@ -108,19 +109,31 @@
 	"../Buffer_Object.h"
 	"../../Maths/GLM.h"
 
-1499901843 source:c:\dev\c++\unamed0\src\graphics\model\model.cpp
+1500158674 source:c:\dev\c++\unamed0\src\graphics\model\model.cpp
 	"Model.h"
 
-1499901825 c:\dev\c++\unamed0\src\graphics\model\model.h
+1500158674 c:\dev\c++\unamed0\src\graphics\model\model.h
 	<memory>
 	"../Buffer_Object.h"
 
-1499901624 c:\dev\c++\unamed0\src\graphics\model\model_loader.h
+1500151014 c:\dev\c++\unamed0\src\graphics\model\model_loader.h
 	"Model.h"
+	"../../Util/StringUtil.h"
+	"../Shader_Program.h"
 	<string>
+	<vector>
+	<sstream>
 	<fstream>
 
-1499902949 source:c:\dev\c++\unamed0\src\graphics\model\model_loader.cpp
+1500159731 source:c:\dev\c++\unamed0\src\graphics\model\model_loader.cpp
 	"Model_Loader.h"
 	<iostream>
+
+1500145160 source:c:\dev\c++\unamed0\src\util\stringutil.cpp
+	"StringUtil.h"
+
+1500145177 c:\dev\c++\unamed0\src\util\stringutil.h
+	<string>
+	<sstream>
+	<vector>
 

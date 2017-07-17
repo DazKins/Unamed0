@@ -9,12 +9,12 @@ namespace Model
     class Model
     {
     public:
-        Model(BufferObject * bufferObject);
+        Model(BufferObject bufferObject);
 
         void render();
 
     private:
-        BufferObject * m_bufferObject;
+        BufferObject m_bufferObject;
     };
 }
 

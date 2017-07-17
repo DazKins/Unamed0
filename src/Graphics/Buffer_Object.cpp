@@ -1,11 +1,11 @@
 #include "Buffer_Object.h"
 
-BufferObject::BufferObject(Shader::Shader_Program * shader)
+BufferObject::BufferObject()
+:   m_shader (Shader::getDefaultShader())
 {
-    m_shader = shader;
 }
 
-BufferObject* BufferObject::setX(float x)
+BufferObject * BufferObject::setX(GLfloat x)
 {
     if (!m_isOpen)
     {
@@ -17,7 +17,7 @@ BufferObject* BufferObject::setX(float x)
     return this;
 }
 
-BufferObject* BufferObject::setY(float y)
+BufferObject * BufferObject::setY(GLfloat y)
 {
     if (!m_isOpen)
     {
@@ -29,7 +29,7 @@ BufferObject* BufferObject::setY(float y)
     return this;
 }
 
-BufferObject* BufferObject::setZ(float z)
+BufferObject * BufferObject::setZ(GLfloat z)
 {
     if (!m_isOpen)
     {
@@ -41,7 +41,7 @@ BufferObject* BufferObject::setZ(float z)
     return this;
 }
 
-BufferObject* BufferObject::setU(float u)
+BufferObject * BufferObject::setU(GLfloat u)
 {
     if (!m_isOpen)
     {
@@ -53,7 +53,7 @@ BufferObject* BufferObject::setU(float u)
     return this;
 }
 
-BufferObject* BufferObject::setV(float v)
+BufferObject * BufferObject::setV(GLfloat v)
 {
     if (!m_isOpen)
     {
@@ -65,7 +65,43 @@ BufferObject* BufferObject::setV(float v)
     return this;
 }
 
-BufferObject* BufferObject::pushVertex()
+BufferObject * BufferObject::setNX(GLfloat x)
+{
+    if (!m_isOpen)
+    {
+        std::cout << "ERROR: Buffer Object is not open!" << std::endl;
+        return nullptr;
+    }
+
+    m_nX = x;
+    return this;
+}
+
+BufferObject * BufferObject::setNY(GLfloat y)
+{
+    if (!m_isOpen)
+    {
+        std::cout << "ERROR: Buffer Object is not open!" << std::endl;
+        return nullptr;
+    }
+
+    m_nY = y;
+    return this;
+}
+
+BufferObject * BufferObject::setNZ(GLfloat z)
+{
+    if (!m_isOpen)
+    {
+        std::cout << "ERROR: Buffer Object is not open!" << std::endl;
+        return nullptr;
+    }
+
+    m_nZ = z;
+    return this;
+}
+
+BufferObject * BufferObject::pushVertex()
 {
     if (!m_isOpen)
     {
@@ -80,12 +116,16 @@ BufferObject* BufferObject::pushVertex()
     m_data.push_back(m_u);
     m_data.push_back(m_v);
 
+    m_data.push_back(m_nX);
+    m_data.push_back(m_nY);
+    m_data.push_back(m_nZ);
+
     m_vertexCount++;
 
     return this;
 }
 
-BufferObject* BufferObject::pushIndex(int index)
+BufferObject * BufferObject::pushIndex(GLuint index)
 {
     if (!m_isOpen)
     {
@@ -130,27 +170,53 @@ void BufferObject::constructVBOs()
                  m_data.data(),
                  GL_STATIC_DRAW);
 
-    GLuint vertLoc = m_shader->getAttributeLocation("position");
+    GLuint vertLoc = Shader::getDefaultShader()->getAttributeLocation("position");
+
+    if (vertLoc == -1)
+    {
+        std::cout << "Vertex attribute location not found" << std::endl;
+    }
 
     glVertexAttribPointer(vertLoc,
                           3,
                           GL_FLOAT,
                           GL_FALSE,
-                          5 * sizeof(GLfloat),
+                          s_vertexSize,
                           (GLvoid*) 0);
 
     glEnableVertexAttribArray(vertLoc);
 
-    GLuint texLoc = m_shader->getAttributeLocation("texCoord");
+    GLuint texLoc = Shader::getDefaultShader()->getAttributeLocation("texCoord");
+
+    if (texLoc == -1)
+    {
+        std::cout << "Texture coordinate attribute location not found (may have been discarded at compile time)" << std::endl;
+    }
 
     glVertexAttribPointer(texLoc,
                           2,
                           GL_FLOAT,
                           GL_FALSE,
-                          5 * sizeof(GLfloat),
+                          s_vertexSize,
                           (GLvoid*) (3 * sizeof(GLfloat)));
 
     glEnableVertexAttribArray(texLoc);
+
+    GLuint normLoc = Shader::getDefaultShader()->getAttributeLocation("normal");
+
+    if (normLoc == -1)
+    {
+        std::cout << "Normal attribute location not found (may have been discarded at compile time)" << std::endl;
+    }
+
+    glVertexAttribPointer(normLoc,
+                          3,
+                          GL_FLOAT,
+                          GL_TRUE,
+                          s_vertexSize,
+                          (GLvoid*) (5 * sizeof(GLfloat)));
+
+    glEnableVertexAttribArray(normLoc);
 
     GLuint ebo;
     glGenBuffers(1, &ebo);
@@ -164,7 +230,7 @@ void BufferObject::constructVBOs()
 
 void BufferObject::render()
 {
-    m_shader->bind();
+    Shader::getDefaultShader()->bind();
 
     glBindVertexArray(m_vaoID);
     glDrawElements(GL_TRIANGLES, m_indexCount, GL_UNSIGNED_INT, nullptr);

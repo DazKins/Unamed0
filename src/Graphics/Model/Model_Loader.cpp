@@ -21,30 +21,69 @@ namespace Model
 
         while (std::getline(file, curLine))
         {
-            const char * lineChars = curLine.c_str();
+            std::stringstream stream (curLine);
 
-            char firstChar = lineChars[0];
+            std::string indicator = "#";
 
-            if (firstChar == 'v')
+            stream >> indicator;
+
+            if (indicator == "#") //Comment
             {
-                char bogus;
+                continue;
+            }
+            else if (indicator == "mtllib") //Location of .mtl material library
+            {
+
+            }
+            else if (indicator == "usemtl") //Set current active material
+            {
+
+            }
+            else if (indicator == "o") //Define new object mesh
+            {
+
+            }
+            else if (indicator == "v") //Vertex coordinates
+            {
                 float x, y, z;
-                std::sscanf(lineChars, "%c %f %f %f", &bogus, &x, &y, &z);
+
+                stream >> x;
+                stream >> y;
+                stream >> z;
+
                 bufferObject.setX(x)->setY(y)->setZ(z);
                 bufferObject.pushVertex();
-            } else if (firstChar == 'f')
-            {
-                char bogus;
-                unsigned int v0, v1, v2;
-                std::sscanf(lineChars, "%c %u %u %u", &bogus, &v0, &v1, &v2);
-                bufferObject.pushIndex(v0 - 1)->pushIndex(v1 - 1)->pushIndex(v2 - 1);
             }
+            else if (indicator == "vn") //Vertex normal
+            {
+
+            }
+            else if (indicator == "vt") //Vertex texture coordinates
+            {
+
+            }
+            else if (indicator == "f") //Face indices
+            {
+                unsigned int ind0, ind1, ind2;
+
+                stream >> ind0;
+                stream >> ind1;
+                stream >> ind2;
+
+                bufferObject.pushIndex(ind0 - 1)->pushIndex(ind1 - 1)->pushIndex(ind2 - 1);
+            }
+            else if (indicator == "s") //Smooth shading toggle
+            {
+
+            }
+
+            stream.clear();
         }
 
         bufferObject.stop();
 
         bufferObject.compile();
 
-        return Model(&bufferObject);
+        return Model(bufferObject);
     }
 }
