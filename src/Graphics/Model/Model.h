@@ -2,19 +2,19 @@
 #define MODEL_H_INCLUDED
 
 #include <memory>
-#include "../Buffer_Object.h"
+#include "../Buffer_Object/Standard_Buffer_Object.h"
 
 namespace Model
 {
     class Model
     {
     public:
-        Model(BufferObject bufferObject);
+        Model(StandardBufferObject bufferObject);
 
         void render();
 
     private:
-        BufferObject m_bufferObject;
+        StandardBufferObject m_bufferObject;
     };
 }
 

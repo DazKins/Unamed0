@@ -8,6 +8,7 @@
 namespace StringUtil
 {
     std::vector<std::string> splitString(std::string str, char delimiter);
+    unsigned int countOccurences(std::string s, char c);
 }
 
 #endif // STRINGUTIL_H_INCLUDED

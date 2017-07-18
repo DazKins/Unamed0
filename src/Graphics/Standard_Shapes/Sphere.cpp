@@ -1,8 +1,8 @@
 #include "Sphere.h"
 
-BufferObject Standard_Shapes::sphere (float radius)
+IndexBufferObject Standard_Shapes::sphere (float radius)
 {
-    BufferObject ret;
+    IndexBufferObject ret;
 
     ret.start();
 

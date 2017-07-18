@@ -11,6 +11,10 @@ namespace Shader
     class Shader_Program
     {
     public:
+        const static int VERTEX_LOCATION = 0;
+        const static int TEXTURE_COORDINATE_LOCATION = 1;
+        const static int NORMAL_LOCATION = 2;
+
         Shader_Program (const std::string& vertexPath, const std::string& fragmentPath);
 
         GLuint getAttributeLocation (const std::string& attribute);

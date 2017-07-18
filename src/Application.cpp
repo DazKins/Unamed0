@@ -1,7 +1,7 @@
 #include "Application.h"
 
 Application::Application()
-:   m_testModel (Model::loadOBJ("bunny"))
+:   m_testModel (Model::loadOBJ("wolf"))
 {
     m_camera = std::make_unique<Camera> (toRadians(90.0), (float) Display::getWidth() / Display::getHeight(), 0.001, 10000.0);
 

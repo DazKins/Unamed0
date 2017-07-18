@@ -2,7 +2,7 @@
 
 namespace Model
 {
-    Model::Model(BufferObject bufferObject)
+    Model::Model(StandardBufferObject bufferObject)
     :   m_bufferObject (bufferObject)
     {
     }

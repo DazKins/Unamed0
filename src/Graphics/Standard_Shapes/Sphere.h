@@ -4,12 +4,12 @@
 #include <cmath>
 #include <GL/glew.h>
 
-#include "../Buffer_Object.h"
+#include "../Buffer_Object/Index_Buffer_Object.h"
 #include "../../Maths/GLM.h"
 
 namespace Standard_Shapes
 {
-    BufferObject sphere (float radius);
+    IndexBufferObject sphere (float radius);
 }
 
 #endif // SPHERE_H_INCLUDED

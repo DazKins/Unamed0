@@ -3,12 +3,15 @@
 
 #include "Model.h"
 #include "../../Util/StringUtil.h"
+#include "../../Maths/GLM.h"
 #include "../Shader_Program.h"
+#include "../Buffer_Object/Standard_Buffer_Object.h"
 
 #include <string>
 #include <vector>
 #include <sstream>
 #include <fstream>
+#include <algorithm>
 
 namespace Model
 {

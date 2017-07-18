@@ -61,8 +61,10 @@
 		<Unit filename="src/Display.h" />
 		<Unit filename="src/Game_Object.cpp" />
 		<Unit filename="src/Game_Object.h" />
-		<Unit filename="src/Graphics/Buffer_Object.cpp" />
-		<Unit filename="src/Graphics/Buffer_Object.h" />
+		<Unit filename="src/Graphics/Buffer_Object/Index_Buffer_Object.cpp" />
+		<Unit filename="src/Graphics/Buffer_Object/Index_Buffer_Object.h" />
+		<Unit filename="src/Graphics/Buffer_Object/Standard_Buffer_Object.cpp" />
+		<Unit filename="src/Graphics/Buffer_Object/Standard_Buffer_Object.h" />
 		<Unit filename="src/Graphics/Camera.cpp" />
 		<Unit filename="src/Graphics/Camera.h" />
 		<Unit filename="src/Graphics/Model/Model.cpp" />

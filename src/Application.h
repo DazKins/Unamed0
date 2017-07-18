@@ -1,7 +1,8 @@
 #ifndef APPLICATION_H_INCLUDED
 #define APPLICATION_H_INCLUDED
 
-#include "Graphics/Buffer_Object.h"
+#include "Graphics/Buffer_Object/Standard_Buffer_Object.h"
+#include "Graphics/Buffer_Object/Index_Buffer_Object.h"
 #include "Graphics/Shader_Program.h"
 #include "Graphics/Camera.h"
 #include "Graphics/Standard_Shapes/Sphere.h"
@@ -22,7 +23,7 @@ public:
 
 private:
     Model::Model m_testModel;
-    BufferObject m_testBO;
+    IndexBufferObject m_testBO;
     std::unique_ptr<Camera> m_camera;
 };
 
