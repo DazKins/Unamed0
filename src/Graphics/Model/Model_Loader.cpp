@@ -81,126 +81,49 @@ namespace Model
             }
             else if (indicator == "f") //Face indices
             {
-                std::string f0, f1, f2, f3;
-
-                stream >> f0;
-                stream >> f1;
-                stream >> f2;
-
-                if (spaceCount == 4)
-                    stream >> f3;
-
-                unsigned int dashCount = StringUtil::countOccurences(f0, '/');
-
-                if (dashCount == 0) //Vertex indices only
+                for (unsigned int i = 0; i < spaceCount; i++)
                 {
-                    unsigned int ind0, ind1, ind2;
+                    unsigned int posInd = -1;
+                    unsigned int texInd = -1;
+                    unsigned int normInd = -1;
 
-                    sscanf(f0.c_str(), "%u", &ind0);
-                    sscanf(f1.c_str(), "%u", &ind1);
-                    sscanf(f2.c_str(), "%u", &ind2);
+                    std::string token;
 
-                    //bufferObject.pushIndices(ind0 - 1, ind1 - 1, ind2 - 1);
+                    stream >> token;
 
-                    ind0--;
-                    ind1--;
-                    ind2--;
+                    unsigned int dashCount = StringUtil::countOccurences(token, '/');
 
-                    Vector3 vert0 = vertices[ind0];
-                    Vector3 vert1 = vertices[ind1];
-                    Vector3 vert2 = vertices[ind2];
-
-                    bufferObject.setPosition(vert0);
-                    bufferObject.pushVertex();
-
-                    bufferObject.setPosition(vert1);
-                    bufferObject.pushVertex();
-
-                    bufferObject.setPosition(vert2);
-                    bufferObject.pushVertex();
-                } else if (dashCount == 1)
-                {
-
-                } else if (dashCount == 2)
-                {
-                    std::vector<std::string> comps0 = StringUtil::splitString(f0, '/');
-                    std::vector<std::string> comps1 = StringUtil::splitString(f1, '/');
-                    std::vector<std::string> comps2 = StringUtil::splitString(f2, '/');
-                    std::vector<std::string> comps3 = StringUtil::splitString(f3, '/');
-
-                    unsigned int len = comps0.size();
-
-                    if (len == 3)
+                    if (dashCount == 0)
                     {
-                        unsigned int posInd0, posInd1, posInd2;
+                        sscanf(token.c_str(), "%u", &posInd);
+                    } else if (dashCount == 1)
+                    {
 
-                        sscanf(comps0[0].c_str(), "%u", &posInd0);
-                        sscanf(comps1[0].c_str(), "%u", &posInd1);
-                        sscanf(comps2[0].c_str(), "%u", &posInd2);
-
-                        posInd0--;
-                        posInd1--;
-                        posInd2--;
-
-                        Vector3 pos0 = vertices[posInd0];
-                        Vector3 pos1 = vertices[posInd1];
-                        Vector3 pos2 = vertices[posInd2];
-
-                        unsigned int texInd0, texInd1, texInd2;
-
-                        sscanf(comps0[1].c_str(), "%u", &texInd0);
-                        sscanf(comps1[1].c_str(), "%u", &texInd1);
-                        sscanf(comps2[1].c_str(), "%u", &texInd2);
-
-                        texInd0--;
-                        texInd1--;
-                        texInd2--;
-
-                        Vector2 tex0 = textureCoords[texInd0];
-                        Vector2 tex1 = textureCoords[texInd1];
-                        Vector2 tex2 = textureCoords[texInd2];
-
-                        unsigned int normInd0, normInd1, normInd2;
-
-                        sscanf(comps0[2].c_str(), "%u", &normInd0);
-                        sscanf(comps1[2].c_str(), "%u", &normInd1);
-                        sscanf(comps2[2].c_str(), "%u", &normInd2);
-
-                        normInd0--;
-                        normInd1--;
-                        normInd2--;
-
-                        Vector3 norm0 = normals[normInd0];
-                        Vector3 norm1 = normals[normInd1];
-                        Vector3 norm2 = normals[normInd2];
-
-                        bufferObject.setAttribs(pos0, tex0, norm0)->pushVertex();
-                        bufferObject.setAttribs(pos1, tex1, norm1)->pushVertex();
-                        bufferObject.setAttribs(pos2, tex2, norm2)->pushVertex();
-
-                        if (spaceCount == 4)
-                        {
-                            unsigned int posInd3;
-                            sscanf(comps3[0].c_str(), "%u", &posInd3);
-                            posInd3--;
-
-                            unsigned int texInd3;
-                            sscanf(comps3[1].c_str(), "%u", &texInd3);
-                            texInd3--;
-
-                            unsigned int normInd3;
-                            sscanf(comps3[2].c_str(), "%u", &normInd3);
-                            normInd3--;
-
-                            Vector3 pos3 = vertices[posInd3];
-                            Vector3 tex3 = vertices[texInd3];
-                            Vector3 norm3 = vertices[normInd3];
-
-                            bufferObject.setAttribs(pos2, tex2, norm2)->pushVertex();
-                            bufferObject.setAttribs(pos3, tex3, norm3)->pushVertex();
-                            bufferObject.setAttribs(pos0, tex0, norm0)->pushVertex();
-                        }
+                    } else if (dashCount == 2)
+                    {
+                        sscanf(token.c_str(), "%u/%u/%u", &posInd, &texInd, &normInd);
                     }
+
+                    if (posInd != -1)
+                    {
+                        posInd--;
+                        Vector3 vert = vertices[posInd];
+                        bufferObject.setPosition(vert);
+                    }
+                    if (texInd != -1)
+                    {
+                        texInd--;
+                        Vector2 texCoord = textureCoords[texInd];
+                        bufferObject.setTextureCoord(texCoord);
+                    }
+                    if (normInd != -1)
+                    {
+                        normInd--;
+                        Vector3 normal = normals[normInd];
+                        bufferObject.setNormal(normal);
+                    }
+
+                    bufferObject.pushVertex();
                 }
             }
             else if (indicator == "s") //Smooth shading toggle

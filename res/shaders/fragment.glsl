@@ -6,5 +6,5 @@ in vec3 pass_pos;
 
 void main()
 {
-    colour = vec4 (1.0, 1.0, 0.0, 1.0);
+    colour = vec4 (1.0, 1.0, 0.0, 1.0) * vec4(pass_pos, 1.0);
 }
